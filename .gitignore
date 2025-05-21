@@ -1,0 +1,23 @@
+# Node modules (in case you add npm packages later)
+node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Build and deployment folders (not needed now, but good practice)
+dist/
+.vercel/
+
+# Environment files (if you add any secrets later)
+.env
+.env.local
+.env.production

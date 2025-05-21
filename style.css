@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff6fb;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #c2185b;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .moto p {
+    font-size: 1.1rem;
+    font-style: italic;
+    background: #ffebee;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  
+  .card h2 {
+    color: #e91e63;
+    margin-top: 0;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .card li::before {
+    content: "💡";
+    margin-right: 0.5rem;
+  }
+  
+  button {
+    background-color: #ec407a;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #d81b60;
+  }
+  
+  #funnyLine {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
