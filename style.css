@@ -1,55 +1,114 @@
-/* Cool and modern design for Miss Yangchen */
-
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  font-family: 'Playfair Display', serif;
-  background-color: #0a0a23;
-  color: #ffffff;
-  overflow-x: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(ellipse at bottom, #0d1a2d, #000);
+  color: white;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .hero {
-  position: relative;
-  height: 100vh;
-  background: url('https://images.unsplash.com/photo-1601758123927-196fbe9f206f') no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
+  padding: 40px 20px;
 }
 
-.overlay {
+.footer {
   position: absolute;
-  top: 0; left: 0;
-  height: 100%;
+  bottom: 10px;
   width: 100%;
-  background: rgba(10, 10, 35, 0.6);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.5;
 }
 
-.content {
+.solar-system {
   position: relative;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
-h1 {
-  font-size: 3rem;
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 20px #ff00ff;
+.sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(yellow, orange);
+  border-radius: 50%;
+  box-shadow: 0 0 30px 10px orange;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
-p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-
-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
-  background: linear-gradient(45deg, #ff00cc, #3333ff);
-  color: white;
-  border: none;
-  border-radius: 10px;
+.planet {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Custom positions + colors */
+.mercury { background: gray;      top: 20%; left: 30%; }
+.venus   { background: goldenrod; top: 35%; left: 50%; }
+.earth   { background: dodgerblue;top: 25%; left: 70%; }
+.mars    { background: red;       top: 50%; left: 20%; }
+.jupiter { background: orange;    top: 65%; left: 60%; width: 28px; height: 28px; }
+.saturn  { background: khaki;     top: 40%; left: 80%; width: 26px; height: 26px; }
+.uranus  { background: lightblue; top: 70%; left: 40%; width: 24px; height: 24px; }
+.neptune { background: royalblue; top: 75%; left: 75%; width: 24px; height: 24px; }
+.pluto   { background: white;     top: 15%; left: 85%; width: 16px; height: 16px; }
+
+/* Comet */
+.comet {
+  position: fixed;
+  top: 100px;
+  right: -100px;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(white, lightblue);
+  border-radius: 50%;
+  box-shadow: 0 0 30px cyan;
+  animation: fly-left 14s ease-out forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.comet::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to left, cyan, transparent);
+  transform: rotate(10deg);
+  opacity: 0.7;
+}
+
+.comet-msg {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  white-space: nowrap;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 12px 18px;
+  border-radius: 12px;
+  animation: fadeout 5s ease-out forwards;
+  box-shadow: 0 0 12px cyan;
+}
+
+@keyframes fly-left {
+  0% { right: -100px; opacity: 1; }
+  100% { right: 110%; opacity: 0; }
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
