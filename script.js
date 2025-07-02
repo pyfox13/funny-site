@@ -1,12 +1,11 @@
-// script.js
-
-function flirtBack() {
-  const lines = [
-    "You're brighter than any galaxy 💫",
-    "You're the gravity that pulls me in 🌀",
-    "Is your name Jupiter? Because you’re making my world spin 💕",
-    "I must be a shooting star, 'cause I just fell for you 🌠"
+function showSurprise() {
+  const messages = [
+    "You're out of this world, Miss Yangchen! 🚀",
+    "Stars shine brighter when you're around ✨",
+    "Beauty, brains, and cosmic charm 🌠",
+    "From Earth to Mars — you're the star of the galaxy 🌌"
   ];
-  const random = lines[Math.floor(Math.random() * lines.length)];
-  alert(random);
+  
+  const msg = messages[Math.floor(Math.random() * messages.length)];
+  alert(msg);
 }
