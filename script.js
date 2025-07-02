@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const comet = document.createElement("div");
       comet.className = "comet";
-      comet.style.top = `${Math.random() * (window.innerHeight - 150) + 50}px`;
+comet.style.top = `${Math.random() * (window.innerHeight * 0.4) + 60}px`;
 
       const msg = document.createElement("div");
       msg.className = "comet-msg";

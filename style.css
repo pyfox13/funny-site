@@ -99,7 +99,7 @@ body {
   background: rgba(0, 0, 0, 0.8);
   padding: 12px 18px;
   border-radius: 12px;
-  animation: fadeout 5s ease-out forwards;
+  animation: fadeout 14s ease-out forwards;
   box-shadow: 0 0 12px cyan;
 }
 
