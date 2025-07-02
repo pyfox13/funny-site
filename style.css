@@ -50,7 +50,7 @@ body {
   box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
-/* Custom positions + colors */
+/* Planets custom color + scattered positions */
 .mercury { background: gray;      top: 20%; left: 30%; }
 .venus   { background: goldenrod; top: 35%; left: 50%; }
 .earth   { background: dodgerblue;top: 25%; left: 70%; }
@@ -66,12 +66,12 @@ body {
   position: fixed;
   top: 100px;
   right: -100px;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   background: radial-gradient(white, lightblue);
   border-radius: 50%;
   box-shadow: 0 0 30px cyan;
-  animation: fly-left 14s ease-out forwards;
+  animation: fly-left 10s ease-out forwards;
   pointer-events: none;
   z-index: 999;
 }
@@ -90,17 +90,20 @@ body {
 
 .comet-msg {
   position: absolute;
-  top: -40px;
-  left: -40px;
+  top: -45px;
+  left: -50px;
   white-space: nowrap;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.8);
   padding: 12px 18px;
   border-radius: 12px;
-  animation: fadeout 14s ease-out forwards;
+  animation: fadeout 15s ease-out forwards;
   box-shadow: 0 0 12px cyan;
+  max-width: 90vw;
+  text-align: center;
+  word-break: break-word;
 }
 
 @keyframes fly-left {
@@ -113,11 +116,11 @@ body {
   100% { opacity: 0; }
 }
 
-
+/* Mobile fix */
 @media (max-width: 600px) {
   .comet {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   .comet::after {
@@ -126,11 +129,9 @@ body {
   }
 
   .comet-msg {
-    font-size: 0.85rem;
-    top: -30px;
-    left: -30px;
-    padding: 8px 10px;
-    max-width: 200px;
-    word-break: break-word;
+    font-size: 1rem;
+    top: -40px;
+    left: -40px;
+    padding: 10px 14px;
   }
 }

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const comet = document.createElement("div");
       comet.className = "comet";
-comet.style.top = `${Math.random() * (window.innerHeight * 0.4) + 60}px`;
+      comet.style.top = `${Math.random() * (window.innerHeight * 0.3) + 80}px`;
 
       const msg = document.createElement("div");
       msg.className = "comet-msg";
@@ -25,7 +25,7 @@ comet.style.top = `${Math.random() * (window.innerHeight * 0.4) + 60}px`;
       comet.appendChild(msg);
 
       document.body.appendChild(comet);
-      setTimeout(() => comet.remove(), 5000);
+      setTimeout(() => comet.remove(), 10000);
     });
   });
 });
