@@ -112,3 +112,25 @@ body {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+
+@media (max-width: 600px) {
+  .comet {
+    width: 22px;
+    height: 22px;
+  }
+
+  .comet::after {
+    width: 80px;
+    height: 3px;
+  }
+
+  .comet-msg {
+    font-size: 0.85rem;
+    top: -30px;
+    left: -30px;
+    padding: 8px 10px;
+    max-width: 200px;
+    word-break: break-word;
+  }
+}
