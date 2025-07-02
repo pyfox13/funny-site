@@ -129,9 +129,10 @@ body {
   }
 
   .comet-msg {
-    font-size: 1rem;
-    top: -40px;
-    left: -40px;
-    padding: 10px 14px;
-  }
+  font-size: 1rem;
+  top: -40px;
+  left: -40px;
+  padding: 10px 14px;
+  animation: fadeout 15s ease-out forwards; /* ensure it fades in sync */
+}
 }
