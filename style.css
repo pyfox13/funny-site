@@ -1,118 +1,59 @@
-:root{
-  --bg1:#f3f7ff;
-  --bg2:#e6f7f2;
-  --primary:#1f7a8c;
-  --accent:#ffb4b4;
-  --accent-2:#ffe3a3;
-  --card:#ffffff;
-  --text:#24323f;
-  --muted:#5e768a;
-  --success:#5cc2a2;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background: radial-gradient(1200px 800px at 10% 10%, var(--bg2) 0%, var(--bg1) 50%, #fff 100%);
-  display:grid;
-  place-items:center;
-  overflow-x:hidden;
-}/* =============================
    Get Well Soon — Stylesheet (Modern CSS)
-   Edit theme via CSS variables below.
+   Edit theme via the CSS variables below.
    ============================= */
 :root{
-  /* Theme colors */
-  --bg1:#f3f7ff;
-  --bg2:#e6f7f2;
-  --primary:#1f7a8c;
-  --accent:#ffb4b4;
-  --accent-2:#ffe3a3;
-  --card:#ffffff;
-  --text:#24323f;
-  --muted:#5e768a;
-
-  /* Radius and shadow tokens */
+  --bg1:#f3f7ff; --bg2:#e6f7f2; --primary:#1f7a8c; --accent:#ffb4b4; --accent-2:#ffe3a3;
+  --card:#ffffff; --text:#24323f; --muted:#5e768a;
   --radius-lg:24px; --radius-md:18px; --radius-sm:14px;
-  --shadow-lg:0 10px 30px rgba(31,122,140,.15);
-  --shadow-md:0 8px 16px rgba(31,122,140,.12);
+  --shadow-lg:0 10px 30px rgba(31,122,140,.15); --shadow-md:0 8px 16px rgba(31,122,140,.12);
 }
-
-/* CSS reset-ish */
 *{box-sizing:border-box}
 html,body{height:100%}
-
-/* Base page */
 body{
-  margin:0;
-  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
-  background: radial-gradient(1200px 800px at 10% 10%, var(--bg2) 0%, var(--bg1) 50%, #fff 100%);
-  display:grid;
-  place-items:center;
-  overflow-x:hidden;
+  margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text);
+  background:radial-gradient(1200px 800px at 10% 10%, var(--bg2) 0%, var(--bg1) 50%, #fff 100%);
+  display:grid; place-items:center; overflow-x:hidden;
 }
-
-/* Layout wrapper */
-.wrap{ width:min(1000px, 94vw); position:relative; padding: 24px 12px 56px; }
-
-/* Main card */
-.card{
-  background:var(--card);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-lg);
-  overflow:hidden;
-  position:relative;
-  isolation:isolate;
-}
-
-/* Hero section */
-.hero{ position:relative; padding:48px 32px 20px; text-align:center; background:linear-gradient(135deg, rgba(31,122,140,.1), rgba(255,180,180,.15)); }
-.badge{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; color:var(--primary); font-weight:600; box-shadow:var(--shadow-md); user-select:none; }
-.title{ margin:22px auto 8px; font-size: clamp(28px, 5vw, 40px); line-height:1.15; }
+.wrap{ width:min(1000px,94vw); position:relative; padding:24px 12px 56px }
+.card{ background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; position:relative; isolation:isolate }
+.hero{ padding:48px 32px 20px; text-align:center; background:linear-gradient(135deg, rgba(31,122,140,.1), rgba(255,180,180,.15)) }
+.badge{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; color:var(--primary); font-weight:600; box-shadow:var(--shadow-md) }
+.title{ margin:22px auto 8px; font-size:clamp(28px,5vw,40px); line-height:1.15 }
 .highlight{ color:var(--primary) }
-.subtitle{ margin:0 auto 18px; color:var(--muted); font-size: clamp(14px, 2.6vw, 18px); max-width:60ch; }
+.subtitle{ margin:0 auto 18px; color:var(--muted); font-size:clamp(14px,2.6vw,18px); max-width:60ch }
 
-/* Grid content */
-.content{ display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; padding: 8px 28px 32px; }
-@media (max-width: 860px){ .content{ grid-template-columns:1fr } }
+.content{ display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:8px 28px 32px }
+@media (max-width:860px){ .content{ grid-template-columns:1fr } }
 
-/* Panels */
-.panel{ background:#f9fcff; border:1px solid #eef3f8; border-radius:var(--radius-md); padding:22px; }
-.panel h3{ margin:0 0 8px; font-size:20px; }
+.panel{ background:#f9fcff; border:1px solid #eef3f8; border-radius:var(--radius-md); padding:22px }
+.panel h3{ margin:0 0 8px; font-size:20px }
 .panel p{ margin:6px 0 0; color:var(--muted) }
 
-/* Tips list */
-.care-list{ list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px; }
-.care-item{ display:flex; align-items:flex-start; gap:12px; background:#fff; border:1px solid #eef3f8; border-radius:var(--radius-sm); padding:12px 14px; }
+.care-list{ list-style:none; padding:0; margin:14px 0 0; display:grid; gap:10px }
+.care-item{ display:flex; align-items:flex-start; gap:12px; background:#fff; border:1px solid #eef3f8; border-radius:var(--radius-sm); padding:12px 14px }
 .emoji{ font-size:22px; line-height:1.2 }
 
-/* Buttons */
-.actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-.btn{ appearance:none; border:none; background:var(--primary); color:#fff; padding:12px 16px; border-radius:var(--radius-sm); font-weight:600; cursor:pointer; box-shadow:var(--shadow-md); transition: transform .08s ease, box-shadow .2s ease, filter .2s ease; }
+.actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:16px }
+.btn{ appearance:none; border:none; background:var(--primary); color:#fff; padding:12px 16px; border-radius:var(--radius-sm); font-weight:600; cursor:pointer; box-shadow:var(--shadow-md); transition: transform .08s ease, box-shadow .2s ease, filter .2s ease }
 .btn:hover{ transform: translateY(-1px) }
 .btn:active{ transform: translateY(0) scale(.98) }
 .btn.secondary{ background:#fff; color:var(--primary); border:1px solid #d9ebef }
 .btn.tiny{ padding:9px 12px; font-size:14px }
+.footer{ padding:14px 22px 22px; color:var(--muted); text-align:center; font-size:14px }
 
-/* Footer */
-.footer{ padding:14px 22px 22px; color:var(--muted); text-align:center; font-size:14px; }
-
-/* Confetti canvas */
+/* Canvas overlay */
 #confetti{ position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:1 }
 
-/* Illustration / photo section */
-.tissue-wrap{ display:grid; align-content:center; justify-items:center; gap:12px; padding:10px; min-height:260px }
-svg{ max-width:260px; width:100%; height:auto }
-.breath{ animation: breath 3s ease-in-out infinite; transform-origin: 50% 70%; }
-@keyframes breath { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+/* Creative kindness generator */
+.kind-wrap{ display:grid; gap:14px; place-items:center; padding:8px }
+.tea-svg{ width:100%; max-width:280px; height:auto }
+.steam{ animation: rise 3.6s ease-in-out infinite; transform-origin:50% 50% }
+@keyframes rise{ 0%{ transform: translateY(6px) scale(.98); opacity:.85 } 50%{ transform: translateY(-6px) scale(1); opacity:1 } 100%{ transform: translateY(6px) scale(.98); opacity:.85 } }
 
-.photo{ display:grid; gap:8px; place-items:center }
-.photo img{ max-width:100%; height:auto; border-radius:var(--radius-md); box-shadow:var(--shadow-md) }
-.uploader{ display:flex; gap:10px; align-items:center }
+.note-card{ background:#fff; border:1px solid #eef3f8; border-radius:var(--radius-md); box-shadow:var(--shadow-md); padding:14px 16px; text-align:center; max-width:40ch }
+.note-card.fade{ animation: noteFade .35s ease }
+@keyframes noteFade{ from{ opacity:0; transform: translateY(4px) } to{ opacity:1; transform: translateY(0) } }
 
-/* Decorative floating bubbles to add a calm vibe */
+/* Decorative floating bubbles */
 .bubble{ position:fixed; border-radius:50%; opacity:.55; pointer-events:none; background: radial-gradient(circle at 30% 30%, #fff, var(--accent)); filter: blur(1px); animation: floatUp linear forwards; z-index:0 }
 @keyframes floatUp{ from{ transform: translateY(0) scale(.9) } to{ transform: translateY(-120vh) scale(1.2); opacity:0 } }

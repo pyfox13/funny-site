@@ -1,118 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta basics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get Well Soon, Yangchen!</title>
-
-  <!-- Google Font: friendly and modern -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!--
-    Confetti canvas sits at the top of the DOM to float above content.
-    We size it in JS and keep it pointer-events none so it never blocks clicks.
-  -->
+  <!-- Canvas overlay for confetti -->
   <canvas id="confetti" aria-hidden="true"></canvas>
 
   <main class="wrap">
     <article class="card" role="region" aria-label="Get well soon card for Yangchen">
-      <!-- HERO SECTION -->
+      <!-- HERO -->
       <header class="hero">
         <span class="badge" aria-hidden="true">🤧 <span>Sending comfort</span></span>
         <h1 class="title">Get well soon, <span class="highlight">Yangchen</span>!</h1>
-        <p class="subtitle">
-          I heard your nose is running. May this little page bring you rest, warm tea, and a smile.
-          You got this and I am rooting for you.
-        </p>
+        <p class="subtitle">I heard your nose is running. May this little page bring you rest, warm tea, and a smile. You got this and I am rooting for you.</p>
       </header>
 
-      <!-- MAIN CONTENT GRID -->
+      <!-- GRID CONTENT -->
       <section class="content">
-        <!-- LEFT: tips and actions -->
+        <!-- LEFT: tips + actions -->
         <section class="panel" aria-label="Warm wishes and actions">
           <h3>Warm wishes</h3>
           <p>Quick comfort kit for today.</p>
           <ul class="care-list">
-            <li class="care-item">
-              <span class="emoji" aria-hidden="true">🫖</span>
-              <div>
-                <strong>Warm tea with honey</strong>
-                <div class="muted">Soothes the throat and feels cozy.</div>
-              </div>
-            </li>
-            <li class="care-item">
-              <span class="emoji" aria-hidden="true">🧻</span>
-              <div>
-                <strong>Soft tissues</strong>
-                <div class="muted">Treat your nose kindly.</div>
-              </div>
-            </li>
-            <li class="care-item">
-              <span class="emoji" aria-hidden="true">💧</span>
-              <div>
-                <strong>Hydrate</strong>
-                <div class="muted">Sip water often.</div>
-              </div>
-            </li>
-            <li class="care-item">
-              <span class="emoji" aria-hidden="true">🛌</span>
-              <div>
-                <strong>Rest well</strong>
-                <div class="muted">Your body heals while you sleep.</div>
-              </div>
-            </li>
+            <li class="care-item"><span class="emoji">🫖</span><div><strong>Warm tea with honey</strong><div class="muted">Soothes the throat and feels cozy.</div></div></li>
+            <li class="care-item"><span class="emoji">🧻</span><div><strong>Soft tissues</strong><div class="muted">Treat your nose kindly.</div></div></li>
+            <li class="care-item"><span class="emoji">💧</span><div><strong>Hydrate</strong><div class="muted">Sip water often.</div></div></li>
+            <li class="care-item"><span class="emoji">🛌</span><div><strong>Rest well</strong><div class="muted">Your body heals while you sleep.</div></div></li>
           </ul>
-
-          <!-- Action buttons -->
           <div class="actions">
-            <button id="btnConfetti" class="btn" aria-label="Celebrate Yangchen">Celebrate</button>
+            <button id="btnConfetti" class="btn" aria-label="Celebrate recovery">Celebrate</button>
             <button id="btnTissue" class="btn secondary" aria-label="Send a virtual tissue">Send a tissue</button>
           </div>
-
+          <p class="tip">Tip: Share this page with Yangchen. It works nicely on a phone too.</p>
         </section>
 
-        <!-- RIGHT: photo uploader and illustration -->
-        <section class="panel" aria-label="Photo or illustration">
-          <div class="tissue-wrap">
-            <!-- Optional personal photo; safe local preview only -->
-            <figure class="photo" id="photoBox" hidden>
-              <img id="photo" alt="A sweet photo for Yangchen" />
-              <figcaption class="muted">Your photo stays on this device only.</figcaption>
-            </figure>
-
-            <!-- Cute tissue box illustration shown by default -->
-            <div id="illustration">
-              <svg viewBox="0 0 300 260" role="img" aria-label="Cute tissue box">
+        <!-- RIGHT: creative kindness generator (no photo upload) -->
+        <section class="panel" aria-label="Kind note and animation">
+          <div class="kind-wrap">
+            <!-- Cute tea cup with animated heart steam -->
+            <div class="tea-illustration" aria-hidden="true">
+              <svg viewBox="0 0 300 220" class="tea-svg" role="img" aria-label="Warm tea with heart steam">
                 <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <linearGradient id="cupGrad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#9ad7e0"/>
                     <stop offset="100%" stop-color="#1f7a8c"/>
                   </linearGradient>
-                  <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#fff"/>
-                    <stop offset="100%" stop-color="#ffe3a3"/>
-                  </linearGradient>
                 </defs>
-                <rect x="40" y="120" width="220" height="90" rx="18" fill="url(#g1)"/>
-                <ellipse cx="150" cy="140" rx="60" ry="18" fill="#0b4c59" opacity=".2"/>
-                <path class="breath" d="M150 40 C120 60, 110 95, 150 110 C190 95, 180 60, 150 40 Z" fill="url(#g2)"/>
-                <g>
-                  <circle cx="115" cy="170" r="10" fill="#193d47"/>
-                  <circle cx="185" cy="170" r="10" fill="#193d47"/>
-                  <path d="M125 190 Q150 205 175 190" stroke="#193d47" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <!-- Saucer -->
+                <ellipse cx="150" cy="170" rx="90" ry="14" fill="#dbeff2"/>
+                <!-- Cup body -->
+                <rect x="95" y="100" width="110" height="50" rx="16" fill="url(#cupGrad)"/>
+                <!-- Handle -->
+                <path d="M205 110 q22 12 0 28" fill="none" stroke="#1f7a8c" stroke-width="6" stroke-linecap="round"/>
+                <!-- Tea surface -->
+                <ellipse cx="150" cy="100" rx="55" ry="10" fill="#b57e57" opacity=".4"/>
+                <!-- Heart steam (animated) -->
+                <g class="steam">
+                  <path d="M150 70 c -10 -14 -30 -6 -30 10 c 0 16 30 28 30 28 s 30 -12 30 -28 c 0 -16 -20 -24 -30 -10z" fill="#ff9fb3"/>
                 </g>
               </svg>
             </div>
 
-            <!-- Photo upload control -->
-            <div class="uploader">
-              <label for="fileInput" class="btn tiny">Add a photo</label>
-              <input id="fileInput" type="file" accept="image/*" hidden />
+            <!-- Rotating kind notes -->
+            <div class="note-card" role="status" aria-live="polite">
+              <div id="noteText">Breathing in calm, breathing out worries. You are loved, Yangchen.</div>
+            </div>
+            <div class="note-actions">
+              <button id="btnNote" class="btn tiny" aria-label="Show a new kind note">New message</button>
             </div>
           </div>
         </section>
@@ -122,7 +81,6 @@
     </article>
   </main>
 
-  <!-- App logic -->
   <script src="script.js" defer></script>
 </body>
 </html>
