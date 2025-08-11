@@ -1,34 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta basics -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miss Yangchen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Well Soon, Yangchen!</title>
+
+  <!-- Google Font: friendly and modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="hero">
-    <h1>Miss Yangchen's Universe</h1>
-    <p>Click on a planet to reveal a cosmic compliment ✨</p>
-  </div>
+  <!--
+    Confetti canvas sits at the top of the DOM to float above content.
+    We size it in JS and keep it pointer-events none so it never blocks clicks.
+  -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
-  <div class="solar-system">
-    <div class="sun"></div>
-    <div class="planet mercury" data-name="Mercury"></div>
-    <div class="planet venus" data-name="Venus"></div>
-    <div class="planet earth" data-name="Earth"></div>
-    <div class="planet mars" data-name="Mars"></div>
-    <div class="planet jupiter" data-name="Jupiter"></div>
-    <div class="planet saturn" data-name="Saturn"></div>
-    <div class="planet uranus" data-name="Uranus"></div>
-    <div class="planet neptune" data-name="Neptune"></div>
-    <div class="planet pluto" data-name="Pluto"></div>
-  </div>
+  <main class="wrap">
+    <article class="card" role="region" aria-label="Get well soon card for Yangchen">
+      <!-- HERO SECTION -->
+      <header class="hero">
+        <span class="badge" aria-hidden="true">🤧 <span>Sending comfort</span></span>
+        <h1 class="title">Get well soon, <span class="highlight">Yangchen</span>!</h1>
+        <p class="subtitle">
+          I heard your nose is running. May this little page bring you rest, warm tea, and a smile.
+          You got this and I am rooting for you.
+        </p>
+      </header>
 
-  <div class="footer">
-    <p>Made with 💫 for Miss Yangchen</p>
-  </div>
+      <!-- MAIN CONTENT GRID -->
+      <section class="content">
+        <!-- LEFT: tips and actions -->
+        <section class="panel" aria-label="Warm wishes and actions">
+          <h3>Warm wishes</h3>
+          <p>Quick comfort kit for today.</p>
+          <ul class="care-list">
+            <li class="care-item">
+              <span class="emoji" aria-hidden="true">🫖</span>
+              <div>
+                <strong>Warm tea with honey</strong>
+                <div class="muted">Soothes the throat and feels cozy.</div>
+              </div>
+            </li>
+            <li class="care-item">
+              <span class="emoji" aria-hidden="true">🧻</span>
+              <div>
+                <strong>Soft tissues</strong>
+                <div class="muted">Treat your nose kindly.</div>
+              </div>
+            </li>
+            <li class="care-item">
+              <span class="emoji" aria-hidden="true">💧</span>
+              <div>
+                <strong>Hydrate</strong>
+                <div class="muted">Sip water often.</div>
+              </div>
+            </li>
+            <li class="care-item">
+              <span class="emoji" aria-hidden="true">🛌</span>
+              <div>
+                <strong>Rest well</strong>
+                <div class="muted">Your body heals while you sleep.</div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Action buttons -->
+          <div class="actions">
+            <button id="btnConfetti" class="btn" aria-label="Celebrate Yangchen">Celebrate</button>
+            <button id="btnTissue" class="btn secondary" aria-label="Send a virtual tissue">Send a tissue</button>
+          </div>
+          <p class="tip">Tip: Share this page with Yangchen. It works nicely on a phone too.</p>
+        </section>
+
+        <!-- RIGHT: photo uploader and illustration -->
+        <section class="panel" aria-label="Photo or illustration">
+          <div class="tissue-wrap">
+            <!-- Optional personal photo; safe local preview only -->
+            <figure class="photo" id="photoBox" hidden>
+              <img id="photo" alt="A sweet photo for Yangchen" />
+              <figcaption class="muted">Your photo stays on this device only.</figcaption>
+            </figure>
+
+            <!-- Cute tissue box illustration shown by default -->
+            <div id="illustration">
+              <svg viewBox="0 0 300 260" role="img" aria-label="Cute tissue box">
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#9ad7e0"/>
+                    <stop offset="100%" stop-color="#1f7a8c"/>
+                  </linearGradient>
+                  <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fff"/>
+                    <stop offset="100%" stop-color="#ffe3a3"/>
+                  </linearGradient>
+                </defs>
+                <rect x="40" y="120" width="220" height="90" rx="18" fill="url(#g1)"/>
+                <ellipse cx="150" cy="140" rx="60" ry="18" fill="#0b4c59" opacity=".2"/>
+                <path class="breath" d="M150 40 C120 60, 110 95, 150 110 C190 95, 180 60, 150 40 Z" fill="url(#g2)"/>
+                <g>
+                  <circle cx="115" cy="170" r="10" fill="#193d47"/>
+                  <circle cx="185" cy="170" r="10" fill="#193d47"/>
+                  <path d="M125 190 Q150 205 175 190" stroke="#193d47" stroke-width="5" fill="none" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Photo upload control -->
+            <div class="uploader">
+              <label for="fileInput" class="btn tiny">Add a photo</label>
+              <input id="fileInput" type="file" accept="image/*" hidden />
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer">With care from your friend ❤️</footer>
+    </article>
+  </main>
+
+  <!-- App logic -->
+  <script src="script.js" defer></script>
 </body>
 </html>
