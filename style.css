@@ -1,4 +1,5 @@
-  Get Well Soon — Stylesheet (Modern CSS)
+/* =============================
+   Get Well Soon — Stylesheet (Modern CSS)
    Tweak theme via the variables below.
    ============================= */
 :root{
@@ -22,6 +23,11 @@ body{
 
 .wrap{ width:min(1000px,94vw); position:relative; padding:24px 12px 56px }
 .card{ background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; position:relative; isolation:isolate }
+/* Animated gradient border */
+.card::before{ content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius-lg) + 2px); background:conic-gradient(from 0deg, #ff9fb3, #ffe3a3, #9ad7e0, #ff9fb3); z-index:0; animation: spin 8s linear infinite }
+.card::after{ content:""; position:absolute; inset:0; border-radius:var(--radius-lg); background:var(--card); z-index:0; margin:2px }
+@keyframes spin{ to{ transform: rotate(1turn) } }
+.card > *{ position:relative; z-index:1 }
 .hero{ padding:48px 32px 20px; text-align:center; background:linear-gradient(135deg, rgba(31,122,140,.1), rgba(255,180,180,.15)) }
 .badge{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; background:#fff; color:var(--primary); font-weight:600; box-shadow:var(--shadow-md) }
 .title{ margin:22px auto 8px; font-size:clamp(28px,5vw,40px); line-height:1.15 }
@@ -67,11 +73,13 @@ body{
 .note-card.fade{ animation: noteFade .35s ease }
 @keyframes noteFade{ from{ opacity:0; transform: translateY(4px) } to{ opacity:1; transform: translateY(0) } }
 
-/* Floating FX layer: mouse hearts + stars */
+/* Floating FX layer: mouse hearts + stars + sparkles + balloons */
 #fx-layer{ position:fixed; inset:0; pointer-events:none; z-index:2 }
 .fx{ position:fixed; will-change:transform, opacity; pointer-events:none; user-select:none }
 .heart{ filter: drop-shadow(0 4px 10px rgba(255,0,80,.2)) }
 .star{ filter: drop-shadow(0 4px 10px rgba(255,170,0,.2)) }
+.sparkle{ color:#ffd6e7; text-shadow:0 0 8px rgba(255,150,200,.8) }
+.balloon{ }
 
 /* Decorative floating bubbles */
 .bubble{ position:fixed; border-radius:50%; opacity:.55; pointer-events:none; background: radial-gradient(circle at 30% 30%, #fff, var(--accent)); filter: blur(1px); animation: floatUp linear forwards; z-index:0 }

@@ -1,7 +1,8 @@
 /* =====================================
    Get Well Soon — JavaScript (Modern Effects)
    Adds: confetti + heart mode, button ripple, mouse heart trail,
-         floating stars, animated bubbles, rotating kind notes
+         floating stars, animated bubbles, rotating kind notes,
+         balloons, sparkles, card parallax tilt, animated border
    ===================================== */
 
 // DOM refs
@@ -10,6 +11,7 @@ const ctx = canvas.getContext('2d');
 const btnConfetti = document.getElementById('btnConfetti');
 const btnTissue = document.getElementById('btnTissue');
 const btnHearts = document.getElementById('btnHearts');
+const btnBalloons = document.getElementById('btnBalloons');
 const noteEl = document.getElementById('noteText');
 const btnNote = document.getElementById('btnNote');
 const fxLayer = document.getElementById('fx-layer');
@@ -63,6 +65,17 @@ const tick = () => {
 };
 requestAnimationFrame(tick);
 
+// Parallax tilt on the main card
+const card = document.querySelector('.card');
+const constrain = 20; // smaller = stronger tilt
+card?.addEventListener('mousemove', (e)=>{
+  const r = card.getBoundingClientRect();
+  const dx = (e.clientX - (r.left + r.width/2)) / r.width;
+  const dy = (e.clientY - (r.top + r.height/2)) / r.height;
+  card.style.transform = `perspective(800px) rotateY(${dx*constrain}deg) rotateX(${ -dy*constrain}deg)`;
+});
+card?.addEventListener('mouseleave', ()=>{ card.style.transform = 'perspective(800px) rotateY(0) rotateX(0)'; });
+
 // Button ripple helper
 const addRipple = (btn, e) => {
   const r = btn.getBoundingClientRect();
@@ -115,6 +128,20 @@ const spawnStar = () => {
 };
 setInterval(spawnStar, 1800);
 
+// Sparkles on click
+addEventListener('click', (e) => {
+  for(let i=0;i<12;i++){
+    const s=document.createElement('div'); s.className='fx sparkle'; s.textContent='✧';
+    s.style.left=(e.clientX + (Math.random()*12-6))+'px';
+    s.style.top=(e.clientY + (Math.random()*12-6))+'px';
+    s.style.fontSize=(8+Math.random()*12)+'px';
+    fxLayer.appendChild(s);
+    const dx=(Math.random()*80-40), dy=(-30 - Math.random()*70);
+    s.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${dx}px, ${dy}px)`,opacity:0}],{duration:700+Math.random()*500,easing:'ease-out'});
+    setTimeout(()=>s.remove(),1300);
+  }
+});
+
 // Mouse heart trail
 addEventListener('mousemove', (e) => {
   if (Math.random() > 0.35) return; // keep it light
@@ -146,9 +173,22 @@ btnHearts.addEventListener('click', (e) => {
   e.currentTarget.textContent = state.heartMode ? 'Hearts: On' : 'Heart mode';
 });
 
+// Balloons 🎈
+const spawnBalloon = () => {
+  const b=document.createElement('div'); b.className='fx balloon'; b.textContent='🎈';
+  b.style.left = Math.random()*100 + 'vw'; b.style.bottom='-40px';
+  b.style.fontSize = (22 + Math.random()*16) + 'px';
+  fxLayer.appendChild(b);
+  const drift=(Math.random()*120-60);
+  b.animate([{transform:'translate(0,0)'},{transform:`translate(${drift}px,-120vh)`}],{duration:5000+Math.random()*2500,easing:'ease-out'});
+  setTimeout(()=>b.remove(), 7800);
+};
+btnBalloons.addEventListener('click',(e)=>{ addRipple(e.currentTarget,e); for(let i=0;i<14;i++) setTimeout(spawnBalloon, i*120); });
+
 // Auto welcome effects
 addEventListener('load', () => {
   burst(innerWidth/2, innerHeight * 0.25, 160, 'rect');
+  for(let i=0;i<6;i++) setTimeout(spawnBalloon, i*250);
 });
 
 // Kind note generator
